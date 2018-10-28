@@ -1,8 +1,8 @@
 module Test_FSM;
-	reg nRESET; 				// 리셋
-	reg clk;						// 클럭
-	reg in; 						// 입력 신호
-	wire out;					// 출력
+	reg nRESET; 				// Reset
+	reg clk;						// CLK
+	reg in; 						// Input
+	wire out;					// Output
 	
 	Mealy U0 
 	(
@@ -12,30 +12,29 @@ module Test_FSM;
 		.out(out)
 	);
 	
-	always #50 clk = ~clk; // clock cycle은 200마다 상승 
-
+	always #50 clk = ~clk; // 50동안 HIGH, 50동안 LOW 100 주기
 	
 	initial begin
 		clk = 1'b1;
 		nRESET = 1'b1;
 		
-		#100 in = 1'b0;
-		#100 in = 1'b0;
-		#100 in = 1'b1;
+		#100 in = 1'b0;		// 0
+		#100 in = 1'b0;		// 0
+		#100 in = 1'b1;		// 1
+	
+		#100 in = 1'b0;		// 0
+		#100 in = 1'b0;		// 0
+		#100 in = 1'b0;		// 0
+		#100 in = 1'b0;		// 0
 		
-		#100 in = 1'b0;
-		#100 in = 1'b0;
-		#100 in = 1'b0;
-		#100 in = 1'b0;
+		#100 in = 1'b1;		// 1
+		#100 in = 1'b1;		// 1
+		#100 in = 1'b1;		// 1
+		#100 in = 1'b1;		// 1
+		#100 in = 1'b1;		// 1
 		
-		#100 in = 1'b1;
-		#100 in = 1'b1;
-		#100 in = 1'b1;
-		#100 in = 1'b1;
-		#100 in = 1'b1;
-		
-		#100 in = 1'b0;
-		#100 in = 1'b0;
+		#100 in = 1'b0;		// 0 
+		#100 in = 1'b0;		// 0
 		
 		#100
 		$finish;

@@ -34,7 +34,7 @@ module Mealy (nRESET, clk, in, out);
 					out =1'b0;
 				end
 				else begin
-					nextState = `FOUR;
+					nextState = `FOUR;	// 1
 					out = 1'b0;
 				end
 			`TWO:								// 00
@@ -43,7 +43,7 @@ module Mealy (nRESET, clk, in, out);
 					out =1'b0;
 				end
 				else begin
-					nextState = `FOUR;
+					nextState = `FOUR;	// 1
 					out = 1'b0;
 				end
 			`THREE:							// 000
@@ -52,7 +52,7 @@ module Mealy (nRESET, clk, in, out);
 					out =1'b1;
 				end
 				else begin
-					nextState = `FOUR;
+					nextState = `FOUR;	// 1
 					out = 1'b0;
 				end
 				
@@ -63,7 +63,7 @@ module Mealy (nRESET, clk, in, out);
 					out =1'b0;
 				end
 				else begin
-					nextState = `ONE;
+					nextState = `ONE;		// 0
 					out = 1'b0;
 				end
 			`FIVE:							// 11
@@ -72,7 +72,7 @@ module Mealy (nRESET, clk, in, out);
 					out =1'b0;
 				end
 				else begin
-					nextState = `ONE;
+					nextState = `ONE;		// 0
 					out = 1'b0;
 				end
 			`SIX:								// 111
@@ -81,7 +81,7 @@ module Mealy (nRESET, clk, in, out);
 					out =1'b1;
 				end
 				else begin
-					nextState = `ONE;
+					nextState = `ONE;		// 0
 					out = 1'b0;
 				end
 				
